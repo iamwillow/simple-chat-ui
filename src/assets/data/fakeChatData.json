@@ -1,0 +1,37 @@
+[
+	{
+		"username": "user_1",
+		"message": "Hey guys, game for some lunch near Futako station today?",
+		"fromMe": false
+	},
+	{
+		"username": "user_2",
+		"message": "yea sure, which place do you have in mind?",
+		"fromMe": false
+	},
+	{
+		"username": "user_1",
+		"message": "Have you tried that bagel place? Across from Toks.",
+		"fromMe": false
+	},
+	{
+		"username": "user_2",
+		"message": "hmmmm, yeh, know about that place, but not sure about bagels for lunch tho..",
+		"fromMe": false
+	},
+	{
+		"username": "user_1",
+		"message": "Well, there's the Korean restaurant upstars if you fancy.",
+		"fromMe": false
+	},
+	{
+		"username": "user_1",
+		"message": "upstairs*",
+		"fromMe": false
+	},
+	{
+		"username": "user_2",
+		"message": "sure, that sounds good. what time?",
+		"fromMe": false
+	}
+]
