@@ -31,15 +31,18 @@ class App extends Component {
       );
     }
     return (
-      <form onSubmit={this.usernameSubmitHandler}>
-        <h1>Welcome</h1>
-        <input
-          type="text"
-          onChange={this.usernameChangeHandler}
-          placeholder="Please create a username"
-          required />
-        <input type="submit" value="Submit" />
-      </form>
+      <div className="welcome-page">
+        <form onSubmit={this.usernameSubmitHandler}>
+          <h1>Welcome</h1>
+          <input
+            type="text"
+            onChange={this.usernameChangeHandler}
+            placeholder="Choose a username"
+            required />
+          <br />
+          <input type="submit" value="Submit" />
+        </form>
+      </div>
     );
   }
 }
