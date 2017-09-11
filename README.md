@@ -8,8 +8,10 @@ The purpose of this repo is to allow employers easy access to viewing code sourc
 
 ## How to run
 
-Install dependancies with `npm install -S package-name`
+1. Install dependancies with `npm install -S package-name`
 Dependancies are located in the package.json file.
+
+2. Inside project directory, build project locally with `npm start`
 
 
 ## Contributing
