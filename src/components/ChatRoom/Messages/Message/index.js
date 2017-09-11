@@ -6,11 +6,22 @@ class Message extends Component {
 
     return (
       <div className={`message ${fromMe}`}>
-        <div className="username">
-          { this.props.username }
-        </div>
-        <div className="message-body">
-          { this.props.message }
+        <img
+          className="avatar"
+          src={require('../../../../assets/img/' + this.props.avatar )}
+          alt="avatar image" />
+        <div className="not-avatar">
+          <div className="flex-wrap">
+            <div className="username">
+              { this.props.username }
+            </div>
+            <div className="time-stamp">
+              6:15 PM
+            </div>
+          </div>
+          <div className="message-body">
+            { this.props.message }
+          </div>
         </div>
       </div>
     );

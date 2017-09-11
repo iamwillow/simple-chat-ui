@@ -44,29 +44,38 @@ class ChatRoom extends Component {
         id: uniqueId("message_"),
         username: this.props.username,
         message: newMessageValue,
-        fromMe: true
+        fromMe: true,
+        avatar: "green-avatar@2x.png"
       };
 
       var newValues = this.state.messages.slice();    
       newValues.push(newMessage);   
-
       this.setState({
-        //messages: [newMessage, ...messages],
         messages: newValues,
-        newMessageValue: "" 
+        newMessageValue: ""
       });
     }
+  }
+
+  componentDidUpdate() {
+    const messageHistory = document.getElementById('messageHistory');
+    messageHistory.scrollIntoView(false);
   }
 
   render(props) {
     return(
       <div>
-        <Messages messageData={this.state.messages}/>
-        <form onSubmit={this.submitHandler}>
-          <input
-            type="text"
+        <div className="header-bar">
+          <i className="fa fa-chevron-left back-button"></i>
+          Lunch Chat
+        </div>
+        <div id="messageHistory">
+          <Messages messageData={this.state.messages}/>
+        </div>
+        <form className="input-form" onSubmit={this.submitHandler}>
+          <textarea
             onChange={this.messageChangeHandler}
-            value={this.state.chatInput}
+            value={this.state.newMessageValue}
             required />
           <input
             type="submit"
