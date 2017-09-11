@@ -11,6 +11,48 @@
 
 @media (min-width: 1280px) {
   // desktops
+  .chat-room {
+  	overflow: hidden;
+  	display: flex;
+  	flex-grow: 1;
+  	height: 100%;
+  	background-color: $background-color;
+  }
+
+  .side-bar {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 20%;
+  }
+
+  .chat-box-wrapper {
+  	height: 100%;
+  	width: 80%;
+  	overflow: hidden;
+  	display: flex;
+  	flex-direction: column;
+  }
+
+  .header-bar {
+  	padding-left: $desktop-padding;
+  }
+
+  .message-history {
+  	overflow-x: hidden;
+  	overflow-y: auto;
+  	height: 100%;
+  	width: 100%;
+  	display: flex;
+  	flex-direction: column;
+  }
+
+  .input-form {
+  	width: 80%;
+  	textarea {
+  		border: none;
+  	}
+  }
 }
 
 @media (min-width: 1440px) {

@@ -1,31 +1,21 @@
-html, body, ul, ol, li, h1, h2, h3, h4, h5,
-p, a, span, div, textarea, input {
-  margin: 0;
-  padding: 0;
-  font-weight: 100;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
-input[type="text"], select:focus, textarea {
-  // stop mobile auto-zoom
-  font-size: 16px;
-}
-
 $main-color:       #3F51B5;
 $secondary-color:  #505050;
 $background-color: #E1E2E1;
 $mobile-padding:   12px;
+$desktop-padding:  24px;
 
 $text-mega: 30px;
 $text-1: 20px;
-$text-2: 16px;
-$text-3: 14px;
-$text-4: 12px;
+$text-2: 18px;
+$text-3: 16px;
+$text-4: 14px;
+$text-5: 12px;
 
-body {
+html, body, #root {
   background-color: $background-color;
   font-family: 'Roboto', sans-serif;
+  height: 100%;
+  word-break: break-word;
 }
 
 .flex-wrap {
@@ -56,7 +46,7 @@ h1 {
     width: 100%;
     max-width: 320px;
     color: #fff;
-    font-size: $text-2;
+    font-size: $text-3;
     border: none;
     background-color: $main-color;
     border-radius: 5px;
@@ -69,20 +59,60 @@ h1 {
   color: #fff;
   padding: $mobile-padding;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
-  position: fixed;
-  width: 100%;
   .back-button {
     margin-right: 32px;
   }
 }
 
-.message-history {
-  padding: $mobile-padding;
-  padding-top: 50px;
-  padding-bottom: 55px;
+.side-bar {
+  display: none;
+  padding-top: $desktop-padding;
+  background-color: $secondary-color;
+  color: #eee;
+
+  .direct-m-title, .group-m-title {
+    color: #A4A7BB;
+    font-size: $text-2;
+    margin: 0 0 10px $desktop-padding;
+  }
+
+  .group-m-title {
+    margin-top: $desktop-padding;
+  }
+
+  .contact {
+    padding: 8px $desktop-padding;
+  }
+
+  .contact:hover {
+    background-color: #666;
+    cursor: pointer;
+  }
+
+  .contact-icon {
+    margin-right: 10px;
+  }
+
+  .online  { color: green; }
+  .offline { color: red;   }
+
+  .group-chat {
+    padding-left: 44px;
+  }
+
+  .current-group {
+    background-color: #777;
+  }
 }
 
-$avatar-size: 50px;
+.message-history {
+  background-color: $background-color;
+  padding: 5px 0 30px $mobile-padding;
+  //overflow-x: hidden;
+  //overflow-y: scroll;
+}
+
+$avatar-size: 40px;
 $avatar-padding: 16px;
 .message {
   padding: 10px 0;
@@ -98,17 +128,17 @@ $avatar-padding: 16px;
   }
   .username {
     font-weight: bold;
-    font-size: $text-2;
+    font-size: $text-3;
     line-height: 14px;
     margin-right: 16px;
   }
   .time-stamp {
     color: #9B9B9B;
     line-height: 18px;
-    font-size: $text-4;
+    font-size: $text-5;
   }
   .message-body {
-    font-size: $text-3;
+    font-size: $text-4;
   }
 }
 
@@ -116,6 +146,8 @@ $avatar-padding: 16px;
   position: fixed;
   bottom: 0;
   width: 100%;
+  background-color: #fff;
+  height: 55px;
   textarea {
     width: 100%;
     height: 54px;
@@ -133,11 +165,11 @@ $avatar-padding: 16px;
   }
   input[type="submit"] {
     position: absolute;
-    right: 16px;
+    right: 24px;
     bottom: 12px;
     padding: 6px 14px;
     color: #fff;
-    font-size: $text-3;
+    font-size: $text-4;
     border: none;
     background-color: $main-color;
     border-radius: 5px;

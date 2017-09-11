@@ -1,0 +1,19 @@
+html, body, ul, ol, li, h1, h2, h3, h4, h5,
+p, a, span, div, textarea, input {
+  margin: 0;
+  padding: 0;
+  font-weight: 100;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+input[type="text"], select:focus, textarea {
+  // stop mobile auto-zoom
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  // clear iOS styles
+  -webkit-appearance: none;
+}

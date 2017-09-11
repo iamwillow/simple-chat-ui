@@ -1,0 +1,26 @@
+[
+	{
+		"group": "Group chat",
+		"current": false
+	},
+	{
+		"group": "Lunch Group",
+		"current": true
+	},
+	{
+		"group": "RID Planning",
+		"current": false
+	},
+	{
+		"group": "rGames kpi",
+		"current": false
+	},
+	{
+		"group": "Another chat",
+		"current": false
+	},
+	{
+		"group": "Mickey meeting",
+		"current": false
+	}
+]

@@ -1,0 +1,34 @@
+[
+	{
+		"contact": "Wilmer",
+		"online": true
+	},
+	{
+		"contact": "Debra",
+		"online": true
+	},
+	{
+		"contact": "Judie",
+		"online": false
+	},
+	{
+		"contact": "Phil",
+		"online": false
+	},
+	{
+		"contact": "Lorris",
+		"online": true
+	},
+	{
+		"contact": "Jason",
+		"online": true
+	},
+	{
+		"contact": "Mom",
+		"online": false
+	},
+	{
+		"contact": "The cat",
+		"online": true
+	}
+]

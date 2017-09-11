@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import uniqueId from 'lodash/uniqueId';
 import Messages from './Messages';
-import fakeChatData from '../../assets/data/fakeChatData.json';
+import SideBar from './SideBar';
+import FakeChatData from '../../assets/data/fakeChatData.json';
 
 class ChatRoom extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class ChatRoom extends Component {
 
   getDefaultState = () => {
     return {
-      messages: fakeChatData.map(message => {
+      messages: FakeChatData.map(message => {
         // setting unique ids for each message
         return {
           id: uniqueId("message_"),
@@ -57,6 +58,11 @@ class ChatRoom extends Component {
     }
   }
 
+  componentDidMount() {
+    const messageHistory = document.getElementById('messageHistory');
+    messageHistory.scrollIntoView(false);
+  }
+
   componentDidUpdate() {
     const messageHistory = document.getElementById('messageHistory');
     messageHistory.scrollIntoView(false);
@@ -64,24 +70,29 @@ class ChatRoom extends Component {
 
   render(props) {
     return(
-      <div>
-        <div className="header-bar">
-          <i className="fa fa-chevron-left back-button"></i>
-          Lunch Chat
+      <div className="chat-room">
+        <SideBar />
+        <div className="chat-box-wrapper" id="messageHistory">
+          <div className="header-bar">
+            {/*<i className="fa fa-chevron-left back-button"></i>*/}
+            Lunch Chat
+          </div>
+          <div className="message-history">
+            <Messages messageData={this.state.messages} />
+          </div>
+          <div className="input-form">
+            <form onSubmit={this.submitHandler}>
+              <textarea
+                onChange={this.messageChangeHandler}
+                value={this.state.newMessageValue}
+                required />
+              <input
+                type="submit"
+                value="Send" />
+            </form>
+          </div>
         </div>
-        <div id="messageHistory">
-          <Messages messageData={this.state.messages}/>
-        </div>
-        <form className="input-form" onSubmit={this.submitHandler}>
-          <textarea
-            onChange={this.messageChangeHandler}
-            value={this.state.newMessageValue}
-            required />
-          <input
-            type="submit"
-            value="Send" />
-        </form>
-      </div>
+      </div> 
     );
   }
 }
