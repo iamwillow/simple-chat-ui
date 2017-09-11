@@ -7,10 +7,6 @@ p, a, span, div, textarea, input {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
-input[type="text"], select:focus, textarea {
-  // stop mobile auto-zoom
-  $text-4;
-}
 
 $main-color:       #3F51B5;
 $secondary-color:  #505050;
@@ -29,6 +25,11 @@ body {
 
 .flex-wrap {
   display: flex;
+}
+
+input[type="text"], select:focus, textarea {
+  // stop mobile auto-zoom
+  font-size: $text-4;
 }
 
 .header-bar {
