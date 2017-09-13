@@ -30,12 +30,16 @@ input[type="text"]{
   outline: none;
 }
 
+input[type="submit"]:hover {
+  cursor: pointer;
+}
+
 h1 {
   font-size: $text-mega;
 }
 
 .welcome-page {
-  padding: 25% $mobile-padding $mobile-padding $mobile-padding;
+  padding: 18% $mobile-padding $mobile-padding $mobile-padding;
   text-align: center;
   h1 {
     margin-bottom: 20px;
@@ -59,6 +63,9 @@ h1 {
   color: #fff;
   padding: $mobile-padding;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
+  position: fixed;
+  width: 100%;
+
   .back-button {
     margin-right: 32px;
   }
@@ -69,6 +76,16 @@ h1 {
   padding-top: $desktop-padding;
   background-color: $secondary-color;
   color: #eee;
+  font-size: $text-4;
+
+  .side-bar-avatar {
+    margin: 0 0 5px $desktop-padding;
+    width: 50px;
+  }
+
+  .username {
+    margin: 0 0 30px $desktop-padding;
+  }
 
   .direct-m-title, .group-m-title {
     color: #A4A7BB;
@@ -93,8 +110,11 @@ h1 {
     margin-right: 10px;
   }
 
-  .online  { color: green; }
-  .offline { color: red;   }
+  .online-icon, .offline-icon { 
+    width: 8px;
+    position: relative;
+    bottom: 2px;
+  }
 
   .group-chat {
     padding-left: 44px;
@@ -107,9 +127,8 @@ h1 {
 
 .message-history {
   background-color: $background-color;
-  padding: 5px 0 30px $mobile-padding;
-  //overflow-x: hidden;
-  //overflow-y: scroll;
+  padding: 50px 0 50px $mobile-padding;
+  margin-bottom: 50px;
 }
 
 $avatar-size: 40px;
@@ -152,7 +171,7 @@ $avatar-padding: 16px;
     width: 100%;
     height: 54px;
     resize: none;
-    padding: 6px 100px 6px 6px;
+    padding: 16px 100px 6px 6px;
     position: absolute;
     bottom: 0;
     border: 3px solid $background-color;
@@ -174,5 +193,29 @@ $avatar-padding: 16px;
     background-color: $main-color;
     border-radius: 5px;
     outline: none;
+  }
+}
+
+.debug-toolbar {
+  color: #fff;
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  top: 0;
+  background-color: $secondary-color;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.24), 0 0 4px 0 rgba(0, 0, 0, 0.12);
+  padding: 10px;
+  button {
+    padding: 6px 14px;
+    margin-top: 8px;
+    color: #fff;
+    font-size: $text-4;
+    border: none;
+    background-color: $main-color;
+    border-radius: 5px;
+    outline: none;
+  }
+  button:hover {
+    cursor: pointer;
   }
 }

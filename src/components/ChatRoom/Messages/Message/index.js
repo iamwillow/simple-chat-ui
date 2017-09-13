@@ -9,7 +9,7 @@ class Message extends Component {
         <img
           className="avatar"
           src={require('../../../../assets/img/' + this.props.avatar )}
-          alt="avatar image" />
+          alt="avatar" />
         <div className="not-avatar">
           <div className="flex-wrap">
             <div className="username">

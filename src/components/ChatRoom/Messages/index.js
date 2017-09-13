@@ -4,7 +4,7 @@ import Message from './Message';
 class Messages extends Component {
   render() {
     return (
-      <div className="message-history">
+      <div>
         { this.props.messageData.map((message) =>
           <Message
             key={message.id}

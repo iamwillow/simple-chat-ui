@@ -27,15 +27,20 @@ class SideBar extends Component {
 	};
 
 	render() {
-		const online  = '';
-		const offline = '';
+		const onlineIcon  = <img className="online-icon" src={require('../../../assets/img/online@2x.png')} alt="O" />;
+		const offlineIcon = <img className="offline-icon" src={require('../../../assets/img/offline@2x.png')} alt="X" />;
 		return (
 			<div className="side-bar">
+				<img
+					className="side-bar-avatar"
+					src={require('../../../assets/img/green-avatar@2x.png')}
+					alt="user avatar" />
+				<p className="username">{ this.props.username }</p>
 				<p className="direct-m-title">Direct Messsages</p>
 				{	this.state.contact.map((contact) =>
 					<div className="contact">
 						<span className={ contact.online ? 'contact-icon online' : 'contact-icon offline' }>
-							{ contact.online ? 'O' : 'X' }
+							{ contact.online ? onlineIcon : offlineIcon }
 						</span>
 						{ contact.contact }
 					</div>

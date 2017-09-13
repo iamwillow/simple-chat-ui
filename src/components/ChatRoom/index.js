@@ -25,15 +25,15 @@ class ChatRoom extends Component {
       }),
       newMessageValue: ""
     };
-  };
+  }
 
-  messageChangeHandler(event) {
+  messageChangeHandler = (event) => {
     this.setState({
       newMessageValue: event.target.value
     });
   }
 
-  submitHandler(event) {
+  submitHandler = (event) => {
     // prevent page refresh
     event.preventDefault();
 
@@ -58,33 +58,92 @@ class ChatRoom extends Component {
     }
   }
 
+  enterKeyHandler = (event) => {
+    if(event.key === 'Enter' && !event.shiftKey){
+      //prevent new line from being made
+      event.preventDefault();
+
+      if (this.state.newMessageValue) {
+        const { newMessageValue } = this.state;
+
+        const newMessage = {
+          id: uniqueId("message_"),
+          username: this.props.username,
+          message: newMessageValue,
+          fromMe: true,
+          avatar: "green-avatar@2x.png"
+        };
+
+        var newValues = this.state.messages.slice();    
+        newValues.push(newMessage);   
+        this.setState({
+          messages: newValues,
+          newMessageValue: ""
+        });
+      }
+    }
+  }
+
+  addTenMessagesHandler = () => {
+    this.setState({ messages: [] });
+  }
+
+  clearMessagesHandler = () => {
+    this.setState({ messages: [] });
+  }
+
+  resetMessagesHandler = () => {
+    const resetMessages = this.getDefaultState();
+    console.log (resetMessages);
+    this.setState({
+      messages: resetMessages
+    });
+  }
+
   componentDidMount() {
     const messageHistory = document.getElementById('messageHistory');
-    messageHistory.scrollIntoView(false);
+    messageHistory.scrollTop = messageHistory.scrollHeight;
   }
 
   componentDidUpdate() {
     const messageHistory = document.getElementById('messageHistory');
-    messageHistory.scrollIntoView(false);
+    messageHistory.scrollTop = messageHistory.scrollHeight;
   }
 
   render(props) {
     return(
       <div className="chat-room">
-        <SideBar />
-        <div className="chat-box-wrapper" id="messageHistory">
+        <SideBar username={this.props.username} />
+        <div className="chat-box-wrapper">
+          <div className="debug-toolbar">
+            Debug Toolbar
+            <br />
+            <button type="submit" onClick={this.clearMessagesHandler}>
+              Add 10 random messages
+            </button>
+            <br />
+            <button type="submit" onClick={this.clearMessagesHandler}>
+              Clear all messages
+            </button>
+            <br />
+            <button type="submit" onClick={this.resetMessagesHandler}>
+              Reset messages
+            </button>
+          </div>
           <div className="header-bar">
             {/*<i className="fa fa-chevron-left back-button"></i>*/}
             Lunch Chat
           </div>
-          <div className="message-history">
+          <div className="message-history" id="messageHistory">
             <Messages messageData={this.state.messages} />
           </div>
           <div className="input-form">
             <form onSubmit={this.submitHandler}>
               <textarea
                 onChange={this.messageChangeHandler}
+                onKeyPress={this.enterKeyHandler}
                 value={this.state.newMessageValue}
+                placeholder="Click here to type something..."
                 required />
               <input
                 type="submit"

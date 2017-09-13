@@ -41,6 +41,7 @@
   .message-history {
   	overflow-x: hidden;
   	overflow-y: auto;
+    margin-bottom: 0;
   	height: 100%;
   	width: 100%;
   	display: flex;
@@ -51,6 +52,7 @@
   	width: 80%;
   	textarea {
   		border: none;
+      padding: 18px 100px 6px $desktop-padding;
   	}
   }
 }
