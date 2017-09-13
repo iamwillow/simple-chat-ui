@@ -3,42 +3,49 @@
 		"username": "user_1",
 		"message": "Hey guys, game for some lunch near Futako station today?",
 		"fromMe": false,
-		"avatar": "purple-avatar@2x.png"
+		"avatar": "purple-avatar@2x.png",
+		"timeStamp": "11:03 AM"
 	},
 	{
 		"username": "user_2",
 		"message": "yea sure, which place do you have in mind?",
 		"fromMe": false,
-		"avatar": "grey-avatar@2x.png"
+		"avatar": "grey-avatar@2x.png",
+		"timeStamp": "11:06 AM"
 	},
 	{
 		"username": "user_1",
 		"message": "Have you tried that bagel place? Across from Toks.",
 		"fromMe": false,
-		"avatar": "purple-avatar@2x.png"
+		"avatar": "purple-avatar@2x.png",
+		"timeStamp": "11:06 AM"
 	},
 	{
 		"username": "user_2",
 		"message": "hmmmm, yeh, know about that place, but not sure about bagels for lunch tho..",
 		"fromMe": false,
-		"avatar": "grey-avatar@2x.png"
+		"avatar": "grey-avatar@2x.png",
+		"timeStamp": "11:07 AM"
 	},
 	{
 		"username": "user_1",
 		"message": "Well, there's the Korean restaurant upstars if you fancy.",
 		"fromMe": false,
-		"avatar": "purple-avatar@2x.png"
+		"avatar": "purple-avatar@2x.png",
+		"timeStamp": "11:10 AM"
 	},
 	{
 		"username": "user_1",
 		"message": "upstairs*",
 		"fromMe": false,
-		"avatar": "purple-avatar@2x.png"
+		"avatar": "purple-avatar@2x.png",
+		"timeStamp": "11:10 AM"
 	},
 	{
 		"username": "user_2",
 		"message": "sure, that sounds good. what time?",
 		"fromMe": false,
-		"avatar": "grey-avatar@2x.png"
+		"avatar": "grey-avatar@2x.png",
+		"timeStamp": "11:16 AM"
 	}
 ]

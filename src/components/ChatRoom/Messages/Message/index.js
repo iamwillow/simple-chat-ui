@@ -13,7 +13,7 @@ const Message = (props) => {
             { props.username }
           </div>
           <div className="time-stamp">
-            6:15 PM
+            { props.timeStamp }
           </div>
         </div>
         <div className="message-body">

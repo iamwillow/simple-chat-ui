@@ -58,6 +58,22 @@ class ChatRoom extends Component {
   }
 
   enterKeyHandler = (event) => {
+    const date = new Date();
+    var hours = date.getHours();
+    const min = date.getMinutes();
+    var ampm = '';
+
+    if( hours === 0 ){
+      hours = 12;
+    } else if (hours > 12){
+      hours = hours - 12;
+      ampm = "PM";
+    } else {
+      ampm = "AM";
+    }
+
+    const timeStamp = hours + ':' + min + ' ' + ampm;
+
     if(event.key === 'Enter' && !event.shiftKey){
       //prevent new line from being made
       event.preventDefault();
@@ -70,7 +86,8 @@ class ChatRoom extends Component {
           username: this.props.username,
           message: newMessageValue,
           fromMe: true,
-          avatar: "green-avatar@2x.png"
+          avatar: "green-avatar@2x.png",
+          timeStamp: timeStamp
         };
 
         this.setState({
@@ -122,7 +139,6 @@ class ChatRoom extends Component {
   componentDidMount() {
     const messageHistory = document.getElementById('messageHistory');
     messageHistory.scrollTop = messageHistory.scrollHeight;
-    console.log('state ', this.state.messages);
   }
 
   componentDidUpdate() {

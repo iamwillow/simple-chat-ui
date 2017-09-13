@@ -10,7 +10,8 @@ const Messages = (props) => {
           username={message.username}
           message={message.message}
           fromMe={message.fromMe} 
-          avatar={message.avatar}/>
+          avatar={message.avatar}
+          timeStamp={message.timeStamp}/>
       )}
     </div>
   );
