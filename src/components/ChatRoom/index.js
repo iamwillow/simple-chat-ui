@@ -57,13 +57,13 @@ class ChatRoom extends Component {
     }
   }
 
-  enterKeyHandler = (event) => {
+  setTimeStamp = () => {
     const date = new Date();
     var hours = date.getHours();
-    const min = date.getMinutes();
+    var min = date.getMinutes();
     var ampm = '';
 
-    if( hours === 0 ){
+    if ( hours === 0 ){
       hours = 12;
     } else if (hours > 12){
       hours = hours - 12;
@@ -72,7 +72,18 @@ class ChatRoom extends Component {
       ampm = "AM";
     }
 
+    if ( min < 10 ){
+      min = '0' + min;
+    }
+
     const timeStamp = hours + ':' + min + ' ' + ampm;
+
+    return timeStamp;
+  }
+
+  enterKeyHandler = (event) => {
+
+    const timeStamp = this.setTimeStamp();
 
     if(event.key === 'Enter' && !event.shiftKey){
       //prevent new line from being made
@@ -104,6 +115,7 @@ class ChatRoom extends Component {
 
     for (var i=0; i<10; i++) {
       const randomUser = Math.floor(Math.random() * 2) + 1;
+      const timeStamp = this.setTimeStamp();
       var avatar = '';
 
       if (randomUser === 1) { 
@@ -117,7 +129,8 @@ class ChatRoom extends Component {
         username: 'user_' + randomUser,
         message: Math.floor(Math.random() * 100) + 1,
         fromMe: false,
-        avatar: avatar
+        avatar: avatar,
+        timeStamp: timeStamp
       }
 
       randomMessages = [...randomMessages, randomMessage];
