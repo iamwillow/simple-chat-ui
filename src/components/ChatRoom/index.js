@@ -37,10 +37,9 @@ class ChatRoom extends Component {
     // prevent page refresh
     event.preventDefault();
 
-    if (this.state.newMessageValue) {
-      // make a new copy of messages
-      const { newMessageValue } = this.state;
+    const { newMessageValue, messages } = this.state;
 
+    if (newMessageValue) {
       const newMessage = {
         id: uniqueId("message_"),
         username: this.props.username,
@@ -49,7 +48,7 @@ class ChatRoom extends Component {
         avatar: "green-avatar@2x.png"
       };
 
-      var newValues = this.state.messages.slice();    
+      var newValues = messages.slice();    
       newValues.push(newMessage);   
       this.setState({
         messages: newValues,
@@ -63,9 +62,9 @@ class ChatRoom extends Component {
       //prevent new line from being made
       event.preventDefault();
 
-      if (this.state.newMessageValue) {
-        const { newMessageValue } = this.state;
+      const { newMessageValue, messages } = this.state;
 
+      if (newMessageValue) {
         const newMessage = {
           id: uniqueId("message_"),
           username: this.props.username,
@@ -74,10 +73,8 @@ class ChatRoom extends Component {
           avatar: "green-avatar@2x.png"
         };
 
-        var newValues = this.state.messages.slice();    
-        newValues.push(newMessage);   
         this.setState({
-          messages: newValues,
+          messages: [...messages, newMessage],
           newMessageValue: ""
         });
       }
@@ -85,7 +82,33 @@ class ChatRoom extends Component {
   }
 
   addTenMessagesHandler = () => {
-    this.setState({ messages: [] });
+    const { messages } = this.state;
+    var randomMessages = {};
+
+    for (var i=0; i<10; i++) {
+      const randomUser = Math.floor(Math.random() * 2) + 1;
+      var avatar = '';
+
+      if (randomUser === 1) { 
+        avatar = 'purple-avatar@2x.png'; 
+      } else { 
+        avatar = 'green-avatar@2x.png'; 
+      }
+
+      var randomMessage = {
+        id: uniqueId("random-message_"),
+        username: 'user_' + randomUser,
+        message: Math.floor(Math.random() * 100) + 1,
+        fromMe: false,
+        avatar: avatar
+      }
+
+      randomMessages = [...randomMessages, randomMessage];
+    }
+
+    this.setState({
+      messages: [...messages, ...randomMessages]
+    });
   }
 
   clearMessagesHandler = () => {
@@ -93,16 +116,13 @@ class ChatRoom extends Component {
   }
 
   resetMessagesHandler = () => {
-    const resetMessages = this.getDefaultState();
-    console.log (resetMessages);
-    this.setState({
-      messages: resetMessages
-    });
+    this.setState( this.getDefaultState() );
   }
 
   componentDidMount() {
     const messageHistory = document.getElementById('messageHistory');
     messageHistory.scrollTop = messageHistory.scrollHeight;
+    console.log('state ', this.state.messages);
   }
 
   componentDidUpdate() {
@@ -118,7 +138,7 @@ class ChatRoom extends Component {
           <div className="debug-toolbar">
             Debug Toolbar
             <br />
-            <button type="submit" onClick={this.clearMessagesHandler}>
+            <button type="submit" onClick={this.addTenMessagesHandler}>
               Add 10 random messages
             </button>
             <br />

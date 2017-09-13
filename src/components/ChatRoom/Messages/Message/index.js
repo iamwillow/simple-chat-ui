@@ -1,31 +1,27 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Message extends Component {
-  render(props) {
-    const fromMe = this.props.fromMe ? 'from-me' : '';
-
-    return (
-      <div className={`message ${fromMe}`}>
-        <img
-          className="avatar"
-          src={require('../../../../assets/img/' + this.props.avatar )}
-          alt="avatar" />
-        <div className="not-avatar">
-          <div className="flex-wrap">
-            <div className="username">
-              { this.props.username }
-            </div>
-            <div className="time-stamp">
-              6:15 PM
-            </div>
+const Message = (props) => {
+  return (
+    <div className={`message ${props.fromMe}`}>
+      <img
+        className="avatar"
+        src={require('../../../../assets/img/' + props.avatar )}
+        alt="avatar" />
+      <div className="not-avatar">
+        <div className="flex-wrap">
+          <div className="username">
+            { props.username }
           </div>
-          <div className="message-body">
-            { this.props.message }
+          <div className="time-stamp">
+            6:15 PM
           </div>
         </div>
+        <div className="message-body">
+          { props.message }
+        </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default Message;
